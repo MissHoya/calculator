@@ -16,42 +16,47 @@ const SVG: React.FC = () => {
     )
 };
 
-const ButtonPanel: React.FC = () => {
+interface IProps {
+    handleClick: Function
+}
+
+const ButtonPanel: React.FC<IProps> = (props) => {
+    const handleClick = (name:string) => {props.handleClick(name)}
     return (
         <div className="button-panel">
             <div className="grid-1">
-                <Button name="C"/>
-                <Button name="÷"/>
-                <Button name="x"/>
-                <Button><SVG/></Button>
+                <Button name="C" operate handleClick={handleClick}/>
+                <Button name="÷" operate handleClick={handleClick}/>
+                <Button name="x" operate handleClick={handleClick}/>
+                <Button name="del" operate handleClick={handleClick}><SVG/></Button>
             </div>
             <div className="grid-1">
-                <Button name="7" number/>
-                <Button name="8" number/>
-                <Button name="9" number/>
-                <Button name="-"/>
+                <Button name="7" handleClick={handleClick}/>
+                <Button name="8" handleClick={handleClick}/>
+                <Button name="9" handleClick={handleClick}/>
+                <Button name="-" operate handleClick={handleClick}/>
             </div>
             <div className="grid-1">
-                <Button name="4" number/>
-                <Button name="5" number/>
-                <Button name="6" number/>
-                <Button name="+"/>
+                <Button name="4" handleClick={handleClick}/>
+                <Button name="5" handleClick={handleClick}/>
+                <Button name="6" handleClick={handleClick}/>
+                <Button name="+" operate handleClick={handleClick}/>
             </div>
             <div className="grid-2">
                 <div className="button-group">
                     <div>
-                        <Button name="1" number/>
-                        <Button name="2" number/>
-                        <Button name="3" number/>
+                        <Button name="1" handleClick={handleClick}/>
+                        <Button name="2" handleClick={handleClick}/>
+                        <Button name="3" handleClick={handleClick}/>
                     </div>
                     <div>
-                        <Button name="%" number/>
-                        <Button name="0" number/>
-                        <Button name="." number/>
+                        <Button name="%" handleClick={handleClick}/>
+                        <Button name="0" handleClick={handleClick}/>
+                        <Button name="." handleClick={handleClick}/>
                     </div>
                 </div>
                 <div className="button-result">
-                    <Button name="="/>
+                    <Button name="=" operate handleClick={handleClick}/>
                 </div>
             </div>
         </div>

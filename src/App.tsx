@@ -4,10 +4,11 @@ import ButtonPanel from './ButtonPanel'
 import './App.css'
 
 const App: React.FC = () => {
+  const handleClick = () => {}
   return (
       <div className="app">
-          <Display/>
-          <ButtonPanel/>
+          <Display />
+          <ButtonPanel handleClick={handleClick}/>
     </div>
   );
 };
